@@ -1,5 +1,5 @@
 import "./style.css";
-const Header = () => {
+const Header = ({onSelectCategory},{Category}) => {
     return (
       <nav>
         <h1>Jackets</h1>
@@ -7,15 +7,8 @@ const Header = () => {
         <div className="sort">
           <div className="collection-sort">
             <label>Filter by:</label>
-            <select>
-              s<option value="/">All Jackets</option>
-              <option value="/">2016</option>
-              <option value="/">jacket</option>
-              <option value="/">Jackets</option>
-              <option value="/">layers</option>
-              <option value="/">Obermeyer</option>
-              <option value="/">Roxy</option>
-              <option value="/">womens</option>
+            <select onSelectCategory={(e)=>onSelectCategory(e.target.value)}>
+            {Category.map((selector)=>{<option value={selector}>{selector}</option>})}
             </select>
           </div>
   
